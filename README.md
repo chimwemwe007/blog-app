@@ -15,7 +15,7 @@ To get a local copy of this exercice, Please follow these simple example steps.
 #### 1. Clone this repository or download the Zip folder:"
 
 ```bash command
-$ git clone https://github.com/hammaazarok/blog-app.git
+$ git clone https://github.com/chimwemwe007/blog-app.git
 ```
 #### 2. Navigate to the location of the folder in your machine:
 ```bash command
@@ -31,10 +31,10 @@ rails server
 
 ## Author
 
-👤 **Hamma Azarok**
+👤 **Chimwemwe Mkandawire**
 
-- GitHub: [@hammaazarok](https://github.com/hammaazarok)
-- LinkedIn: [hammaazarok](https://www.linkedin.com/in/hammaazarok)
+- GitHub: [@chimwemwe007](https://github.com/chimwemwe007)
+- LinkedIn: [chimweme-mkandawire](https://www.linkedin.com/in/chimwemwe-mkandawire)
 
 
 ## 🤝 Contributing
