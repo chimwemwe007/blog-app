@@ -3,6 +3,7 @@
 # Rails Blog App
 
 > The Blog app is Roby on rails website that will show the list of posts and empower readers to interact with them by adding comments and liking posts.
+> In this project for the blog app i had to change the validation for the differentmodels as well as writeunit tests for them.
 
 
 ## Built With
