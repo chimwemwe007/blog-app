@@ -16,4 +16,3 @@ class Post < ApplicationRecord
     users.increment!(:posts_counter)
   end
 end
-
