@@ -13,7 +13,11 @@ development:
 
 test:
   <<: *default
-  database: BlogApp_test
+  database: blogapp_development
+  username: blogapp
+  password: gjjkulu
+  host: 127.0.0.1
+  port: 5432
 
 production:
   <<: *default
