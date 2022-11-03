@@ -1,42 +1,35 @@
 require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
-  before(:each) do
-    @user =
-      User.create(
-        name: 'Julie',
-        photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-        bio: 'I am a renowned teached from Mexico. I enjoy my work very much.',
-        posts_counter: 3
-      )
+  describe 'test GET #index' do
+    before(:example) { get user_posts_path(1) }
 
-    @post =
-      Post.create(
-        users: @user,
-        title: 'My first post',
-        text: 'This is the first post of my blog',
-        comments_counter: 3,
-        likes_counter: 5
-      )
-  end
-
-  context 'GET #index for a user post' do
-    before(:each) { get user_posts_path(@user) }
-    it 'is successful' do
+    it 'return correct response status' do
       expect(response).to have_http_status(:ok)
     end
-    it 'renders index template' do
+
+    it 'should return the rendered template' do
       expect(response).to render_template('index')
     end
+
+    it 'should include correct placeholder text' do
+      expect(response.body).to include('Here is a list of posts for a given user')
+    end
   end
 
-  context 'GET #show' do
-    before(:each) { get user_post_path(@user, @post) }
-    it 'is successful' do
+  describe 'test GET #show' do
+    before(:example) { get user_post_path(1, 1) }
+
+    it 'return correct response status' do
       expect(response).to have_http_status(:ok)
     end
-    it 'renders show template' do
+
+    it 'should return the rendered template' do
       expect(response).to render_template('show')
+    end
+
+    it 'return correct placeholder text' do
+      expect(response.body).to include('Here is a detailed page of a post')
     end
   end
 end

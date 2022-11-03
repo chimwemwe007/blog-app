@@ -1,36 +1,35 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
-  before(:each) do
-    @user =
-      User.create(
-        name: 'Agnes',
-        photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-        bio: 'I am an archaeologist from Australia. I just love digging.',
-        posts_counter: 2
-      )
-  end
+  describe 'GET #index' do
+    before(:example) { get users_path }
 
-  context 'GET #index' do
-    before(:each) { get users_path }
-    it 'is successful' do
+    it 'return correct response status' do
       expect(response).to have_http_status(:ok)
     end
-    it "renders 'index' template" do
+
+    it 'should return the rendered template' do
       expect(response).to render_template('index')
     end
-    it 'does not render a different template' do
-      expect(response).to_not render_template(:show)
+
+    it 'return correct placeholder text' do
+      expect(response.body).to include('Here is a list of users')
     end
   end
 
-  context 'GET #show' do
-    before(:each) { get user_path(@user) }
-    it 'is successful' do
+  describe 'GET #show' do
+    before(:example) { get user_path(1) }
+
+    it 'eturn correct response status' do
       expect(response).to have_http_status(:ok)
     end
-    it "renders 'show' template" do
+
+    it 'should return the rendered template' do
       expect(response).to render_template('show')
+    end
+
+    it 'return correct placeholder text' do
+      expect(response.body).to include('Here is a profile of a given user')
     end
   end
 end
