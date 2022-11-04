@@ -1,72 +1,72 @@
 require 'rails_helper'
 
-describe Post, type: :model do
-  let(:user) do
-    User.new(
-      name: 'John',
-      photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-      bio: 'I am a photographer',
-      posts_counter: 4
+RSpec.describe Post, type: :model do
+  before(:all) do
+    @user = User.create(
+      name: 'Doe', photo: 'https://johndoe.com/me.png',
+      bio: 'I am John Doe.', posts_counter: 0
     )
   end
 
-  let(:post) do
+  subject do
     Post.new(
-      users: user,
-      title: 'My first post',
-      text: 'This is my first post',
-      comments_counter: 1,
-      likes_counter: 2
+      author: @user, title: 'About', text: 'About me', comments_counter: 1,
+      likes_counter: 0
     )
   end
 
-  it 'title should be present' do
-    post.title = nil
-    expect(post).to_not be_valid
+  before { subject.save }
+
+  context 'Return valid data' do
+    it 'should accept comments_counter' do
+      subject.comments_counter = 2
+      expect(subject).to be_valid
+    end
+
+    it 'should accept title' do
+      subject.title = 'About'
+      expect(subject).to be_valid
+    end
+
+    it 'should accept likes_counter' do
+      subject.likes_counter = 6
+      expect(subject).to be_valid
+    end
   end
 
-  it 'title should be present' do
-    post.title = 'My first post'
-    expect(post).to be_valid
-  end
+  context 'Return invalid data' do
+    it 'should not accept more than 250 character' do
+      subject.title = '
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula
+        eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient
+        montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque
+        eu, pretium quis,'
+      expect(subject).to_not be_valid
+    end
 
-  it 'title should not be too long' do
-    post.title = 'a' * 251
-    expect(post).to_not be_valid
-  end
+    it 'should not accept blank title' do
+      subject.title = nil
+      expect(subject).to_not be_valid
+    end
 
-  it 'title should not be too long' do
-    post.title = 'a' * 249
-    expect(post).to be_valid
-  end
+    it 'should accept negative comments_counter' do
+      subject.comments_counter = -2
+      expect(subject).to_not be_valid
+    end
 
-  it 'comments_counter should be an integer' do
-    post.comments_counter = 'two'
-    expect(post).to_not be_valid
-  end
+    it 'should accept negative likes_counter' do
+      subject.likes_counter = -6
+      expect(subject).to_not be_valid
+    end
 
-  it 'comments_counter should be an integer' do
-    post.comments_counter = 2
-    expect(post).to be_valid
-  end
+    it 'should accept non numerical comments_counter' do
+      subject.comments_counter = 'C'
+      expect(subject).to_not be_valid
+    end
 
-  it 'comments_counter should not be negative' do
-    post.comments_counter = -1
-    expect(post).to_not be_valid
-  end
-
-  it 'likes_counter should be an integer' do
-    post.likes_counter = 'four'
-    expect(post).to_not be_valid
-  end
-
-  it 'likes_counter should be an integer' do
-    post.likes_counter = 4
-    expect(post).to be_valid
-  end
-
-  it 'likes_counter should not be negative' do
-    post.likes_counter = -1
-    expect(post).to_not be_valid
+    it 'should accept non numerical likes_counter' do
+      subject.likes_counter = 'C'
+      expect(subject).to_not be_valid
+    end
   end
 end

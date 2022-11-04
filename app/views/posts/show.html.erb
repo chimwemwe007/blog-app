@@ -1,1 +1,12 @@
-<h1>Here is a detailed page of a post</h1>
+<div class="posts">
+  <div class="card-info">
+    <h3> <%=@post.title%> by <%= @post.author.name%> </h3>
+    <p> <%= @post.text%> </p>
+    <p class="placeholder stats placeholder-top"> Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %> </p>
+  </div>
+  <div class="card-info">
+    <% @post.comment.each do |coment| %>
+      <p> <%= coment.author.name%>: <%= coment.text%><p>
+    <% end %>  
+  </div>
+</div>

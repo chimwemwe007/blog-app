@@ -1,52 +1,41 @@
 require 'rails_helper'
 
-describe User, type: :model do
-  subject { User.new(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.', posts_counter: 3) }
-
-  before { subject.save }
-
-  it 'name should be present' do
-    subject.name = nil
-    expect(subject).to_not be_valid
+RSpec.describe User, type: :model do
+  subject do
+    User.new(
+      name: 'Doe', photo: 'https://johndoe.com/me.png',
+      bio: 'I am John Doe.', posts_counter: 0
+    )
   end
 
-  it 'name should be present' do
-    subject.name = 'Tom'
-    expect(subject).to be_valid
+  before { subject.save } # save the user before each test
+
+  context 'Return valid data' do
+    it 'should accept name' do
+      subject.name = 'Doe'
+      expect(subject).to be_valid
+    end
+
+    it 'should accept post_counter' do
+      subject.posts_counter = 3
+      expect(subject).to be_valid
+    end
   end
 
-  it 'posts_counter should be an integer' do
-    subject.posts_counter = 'three'
-    expect(subject).to_not be_valid
-  end
+  context 'Return invalid data' do
+    it 'should not accept blank name' do
+      subject.name = nil
+      expect(subject).to_not be_valid
+    end
 
-  it 'posts_counter should be an integer' do
-    subject.posts_counter = 3
-    expect(subject).to be_valid
-  end
+    it 'should not accept negative post_counter' do
+      subject.posts_counter = -1
+      expect(subject).to_not be_valid
+    end
 
-  it 'posts_counter should not be negative' do
-    subject.posts_counter = -1
-    expect(subject).to_not be_valid
-  end
-
-  it 'bio should be less than 180 characters' do
-    subject.bio = 'a' * 181
-    expect(subject).to_not be_valid
-  end
-
-  it 'bio should be less than 180 characters' do
-    subject.bio = 'a' * 180
-    expect(subject).to be_valid
-  end
-
-  it 'bio should be more than 20 characters' do
-    subject.bio = 'a' * 19
-    expect(subject).to_not be_valid
-  end
-
-  it 'bio should be more than 20 characters' do
-    subject.bio = 'a' * 20
-    expect(subject).to be_valid
+    it 'should not accept non numerical post_counter' do
+      subject.posts_counter = 'count'
+      expect(subject).to_not be_valid
+    end
   end
 end
