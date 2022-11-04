@@ -1,49 +1,21 @@
-require_relative '../rails_helper'
+require 'rails_helper'
 
 RSpec.describe Like, type: :model do
-  let(:user) do
-    User.new(
-      name: 'John',
-      photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-      bio: 'I am a photographer',
-      posts_counter: 4
-    )
-  end
+  @user = User.create(
+    name: 'Doe', photo: 'https://johndoe.com/me.png',
+    bio: 'I am John Doe.', posts_counter: 0
+  )
 
-  let(:post) do
-    Post.new(
-      users: user,
-      title: 'My first post',
-      text: 'This is my first post',
-      comments_counter: 1,
-      likes_counter: 2
-    )
-  end
+  post = Post.create(
+    author: @user, title: 'About', text: 'About me', comments_counter: 0,
+    likes_counter: 0
+  )
 
-  let(:like) do
-    Like.new(
-      users: user,
-      posts: post
-    )
-  end
+  Like.create(post:, author: @user)
 
-  it 'is only valid with a user' do
-    like.users = user
-    expect(like).to be_valid
-  end
-
-  it 'is only valid with a user' do
-    like.users = nil
-    expect(like).to_not be_valid
-  end
-
-  it 'is valid with a post' do
-    like.posts = post
-    expect(like).to be_valid
-  end
-
-  it 'is only valid with a post' do
-    like.posts = nil
-    expect(like).to_not be_valid
+  context 'update_likes_counter' do
+    it ' increment likes_counter' do
+      expect(Post.find(post.id).likes_counter).eql?(post.likes_counter + 1)
+    end
   end
 end

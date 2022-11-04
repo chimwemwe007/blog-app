@@ -1,1 +1,20 @@
-<h1>Here is a list of posts for a given user</h1>
+<h1>List of all Posts by <%= @user.name%></h1>
+<section >
+  <%= render'partials/user', user: @user %>
+    <% @posts.each do |post| %>
+   <a href="/users/<%= @user.id %>/posts/<%= post.id %>">
+    <ul class="post-list">
+    <%= render 'partials/post', post: post %>
+    </ul>
+    <ul class="comments-list">
+      <% if post.comments_counter > 0 %>
+            <%= render 'partials/comment', comment: post.return_recent_comments %>
+      <% else %>
+        <li>No comments</li>
+      <% end %>
+    </ul>
+   <a>
+    <% end %>
+
+  <button type='button'>Pagination</button>
+</section>
