@@ -2,8 +2,7 @@
 
 # Rails Blog App
 
-> The Blog app is rails website that will show the list of posts and empower readers to interact with them by adding posts, comments and likes.
-> In this project i added forms for the user.
+> The Blog app is Roby on rails website that will show the list of posts and empower readers to interact with them by adding comments and liking posts.
 
 
 ## Built With
@@ -40,11 +39,11 @@ rails server
 
 ## Author
 
-👤 **Chimwemwe-Mkandawire**
+👤 **Chimwemwe Mkandawire**
 
 - GitHub: [@chimwemwe007](https://github.com/chimwemwe007)
-- LinkedIn: [@chimwemwe-mkandawire](https://www.linkedin.com/in/chimwemwe007)
-- twitter: [@chxmz]
+- LinkedIn: [@chimwewmwe-mkandawire](https://www.linkedin.com/in/chimwemwe-mkandawire
+- twitter: [@chmz](https://twitter.com/chxmz))
 
 
 ## 🤝 Contributing
