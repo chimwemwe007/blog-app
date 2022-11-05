@@ -3,8 +3,6 @@
 # Rails Blog App
 
 > The Blog app is Roby on rails website that will show the list of posts and empower readers to interact with them by adding comments and liking posts.
-> In this project for the blog app i had to change the validation for the different models as well as write unit tests for them. Also i had to include forms for the different models.
-
 
 
 ## Built With
@@ -15,9 +13,8 @@
 To get a local copy of this exercice, Please follow these simple example steps.
 
 #### 1. Clone this repository or download the Zip folder:"
-
 ```bash command
-$ git clone https://github.com/chimwemwe007/blog-app.git
+$ git clone https://github.com/hammaazarok/blog-app.git
 ```
 #### 2. Navigate to the location of the folder in your machine:
 ```bash command
@@ -25,22 +22,30 @@ you@your-Pc-name:~$ cd <folder>
 ```
 #### 3. Press Enter to navigate to your local clone.
 
-#### 4. Go to your terminal and run the app with the following command:
-```bash command
+#### 4. Go to your terminal and run this command to setup the database
+
+``` bash command
+rails db:create && rails db:migrate
+
+``` 
+
+#### 5. Start the app server with the following command:
+
+``` bash command
 rails server
-```
+
+``` 
 - Navigate to http://localhost:3000/
 
 ## Author
 
-👤 **Chimwemwe Mkandawire**
+👤 **Hamma Azarok**
 
-- GitHub: [@chimwemwe007](https://github.com/chimwemwe007)
-- LinkedIn: [chimweme-mkandawire](https://www.linkedin.com/in/chimwemwe-mkandawire)
+- GitHub: [@hammaazarok](https://github.com/hammaazarok)
+- LinkedIn: [hammaazarok](https://www.linkedin.com/in/hammaazarok)
 
 
 ## 🤝 Contributing
-
 Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](../../issues/).

@@ -8,5 +8,10 @@
     <% @post.comment.each do |coment| %>
       <p> <%= coment.author.name%>: <%= coment.text%><p>
     <% end %>  
+    <%= form_with url: "/users/#{@post.author_id}/posts/#{@post.id}/likes" do |f| %>
+  <%= f.submit "Like" %>
+   <a href="<%=@post.id%>/comments/new"><button class="btn">Comment</button></a>
+  <% end %>
+ 
   </div>
 </div>
