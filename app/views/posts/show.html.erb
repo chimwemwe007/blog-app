@@ -1,12 +1,27 @@
-<div class="posts">
-  <div class="card-info">
-    <h3> <%=@post.title%> by <%= @post.author.name%> </h3>
-    <p> <%= @post.text%> </p>
-    <p class="placeholder stats placeholder-top"> Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %> </p>
-  </div>
-  <div class="card-info">
-    <% @post.comment.each do |coment| %>
-      <p> <%= coment.author.name%>: <%= coment.text%><p>
-    <% end %>  
-  </div>
-</div>
+<h1>Here is a lists of a given post</h1>
+<section>
+      <div class= "container">
+        <div class="details">
+          <h1 class="user-head"><%= @post.title %></h1>
+          <p>post deescription: <span><%= @post.text%></span> </p>
+          <p class="user-para">Number of comments: <%= @post.comments_counter || 0 %></p>
+          <p class="user-para">Number of likes: <%= @post.likes_counter || 0 %></p>
+        </div>
+      </div>
+      <div class="recent-comments">
+
+      <div>
+        <%= form_with url: "/users/#{@post.author_id}/posts/#{@post.id}/likes", scope: :like do |f| %>
+        <%= f.submit "Like" %>
+        <% end %>
+      </div>
+      
+      <ul>
+      <% @comments.each do |rec| %>
+      <li><%= rec.author.name %> : <%= rec.text %></li>
+       <% end %>
+      </ul>
+
+      <%= render "add_comment" %>
+    </div>
+</section>

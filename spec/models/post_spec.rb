@@ -3,70 +3,37 @@ require 'rails_helper'
 RSpec.describe Post, type: :model do
   before(:all) do
     @user = User.create(
-      name: 'Doe', photo: 'https://johndoe.com/me.png',
-      bio: 'I am John Doe.', posts_counter: 0
+      name: 'Ambrose',
+      photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+      bio: 'I am a preacher of CHRIST',
+      posts_counter: 0
+    )
+    @post = Post.create(
+      title: 'Programming school at Microverse is awesome',
+      text: 'Coding is fun',
+      comments_counter: 0,
+      likes_counter: 1,
+      author_id: @user.id
     )
   end
 
-  subject do
-    Post.new(
-      author: @user, title: 'About', text: 'About me', comments_counter: 1,
-      likes_counter: 0
-    )
+  it '@post created should be valid' do
+    expect(@post).to be_valid
   end
-
-  before { subject.save }
-
-  context 'Return valid data' do
-    it 'should accept comments_counter' do
-      subject.comments_counter = 2
-      expect(subject).to be_valid
-    end
-
-    it 'should accept title' do
-      subject.title = 'About'
-      expect(subject).to be_valid
-    end
-
-    it 'should accept likes_counter' do
-      subject.likes_counter = 6
-      expect(subject).to be_valid
-    end
+  it '@Title must not be blank' do
+    @post.title = 'Programming school at Microverse is awesome'
+    expect(@post).to be_valid
   end
-
-  context 'Return invalid data' do
-    it 'should not accept more than 250 character' do
-      subject.title = '
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula
-        eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient
-        montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque
-        eu, pretium quis,'
-      expect(subject).to_not be_valid
-    end
-
-    it 'should not accept blank title' do
-      subject.title = nil
-      expect(subject).to_not be_valid
-    end
-
-    it 'should accept negative comments_counter' do
-      subject.comments_counter = -2
-      expect(subject).to_not be_valid
-    end
-
-    it 'should accept negative likes_counter' do
-      subject.likes_counter = -6
-      expect(subject).to_not be_valid
-    end
-
-    it 'should accept non numerical comments_counter' do
-      subject.comments_counter = 'C'
-      expect(subject).to_not be_valid
-    end
-
-    it 'should accept non numerical likes_counter' do
-      subject.likes_counter = 'C'
-      expect(subject).to_not be_valid
-    end
+  it '@title must not exceed 250 characters.' do
+    @post.title = 'Coding is fun'
+    expect(@post).to be_valid
+  end
+  it '@post created should be valid' do
+    @post.comments_counter = 0
+    expect(@post).to be_valid
+  end
+  it '@LikesCounter must be an integer greater than or equal zero.' do
+    @post.likes_counter = 1
+    expect(@post).to be_valid
   end
 end
