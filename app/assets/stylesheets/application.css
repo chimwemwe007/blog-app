@@ -13,39 +13,3 @@
  *= require_tree .
  *= require_self
  */
-
-.users_list {
-  display: flex;
-  flex-direction: column;
-}
-
-.user-card {
-  display: flex;
-  flex-direction: row;
-  background-color: rgb(255, 255, 255, 0.2);
-  border: 1px solid #fff;
-  border-radius: 5px;
-  margin-bottom: 5px;
-}
-
-.user_photo img {
-  width: 250px;
-  height: 200px;
-  margin-right: 10px;
-}
-
-.btn {
-  width: 60%;
-  height: 40px;
-}
-
-.form-input {
-  display: flex;
-  flex-direction: column;
-}
-
-@media only screen and (max-width: 720px) {
-  .btn {
-    width: 100%;
-  }
-}
