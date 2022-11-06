@@ -1,21 +1,26 @@
 require 'rails_helper'
 
-RSpec.describe Comment, type: :model do
-  @user = User.create(
-    name: 'Doe', photo: 'https://johndoe.com/me.png',
-    bio: 'I am John Doe.', posts_counter: 0
-  )
+RSpec.describe Post, type: :model do
+  before(:all) do
+    @user = User.create(
+      name: 'Ambrose',
+      photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+      bio: 'I am a preacher of CHRIST',
+      posts_counter: 0
+    )
+    @comment = Comment.create(
+      text: 'Coding is fun',
+      author_id: @user.id,
+      post_id: 1
+    )
+  end
 
-  post = Post.create(
-    author: @user, title: 'About', text: 'About me', comments_counter: 0,
-    likes_counter: 0
-  )
+  it '@comments created should be valid' do
+    expect(@comment).to be_valid
+  end
 
-  Comment.create(post:, author: @user)
-
-  context 'update_comments_counter' do
-    it ' increment comments_counter' do
-      expect(Post.find(post.id).comments_counter).eql?(post.comments_counter + 1)
-    end
+  it '@comments created should be valid' do
+    @comment.text = 'Nice comments makes your code looks good and descriptive'
+    expect(@comment).to be_valid
   end
 end

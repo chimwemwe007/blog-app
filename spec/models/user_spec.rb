@@ -1,41 +1,36 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject do
-    User.new(
-      name: 'Doe', photo: 'https://johndoe.com/me.png',
-      bio: 'I am John Doe.', posts_counter: 0
+  before(:all) do
+    @user = User.new(
+      name: 'Ambrose',
+      photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+      bio: 'I am a preacher of CHRIST',
+      posts_counter: 0
     )
   end
 
-  before { subject.save } # save the user before each test
-
-  context 'Return valid data' do
-    it 'should accept name' do
-      subject.name = 'Doe'
-      expect(subject).to be_valid
-    end
-
-    it 'should accept post_counter' do
-      subject.posts_counter = 3
-      expect(subject).to be_valid
-    end
+  it '@user created should be valid' do
+    expect(@user).to be_valid
   end
 
-  context 'Return invalid data' do
-    it 'should not accept blank name' do
-      subject.name = nil
-      expect(subject).to_not be_valid
-    end
+  it 'name value should be present' do
+    @user.name = nil
+    expect(@user).to_not be_valid
+  end
 
-    it 'should not accept negative post_counter' do
-      subject.posts_counter = -1
-      expect(subject).to_not be_valid
-    end
+  it 'posts_counter must have a numeric value' do
+    @user.posts_counter = 'abc'
+    expect(@user).to_not be_valid
+  end
 
-    it 'should not accept non numerical post_counter' do
-      subject.posts_counter = 'count'
-      expect(subject).to_not be_valid
-    end
+  it 'posts_counter must be >= 0' do
+    @user.posts_counter = -1
+    expect(@user).to_not be_valid
+  end
+
+  it 'has a valid bio' do
+    @user.bio = 'nil'
+    expect(@user).to_not be_valid
   end
 end
