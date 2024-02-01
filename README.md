@@ -1,49 +1,141 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
+<a name="readme-top"></a>
 
-# Rails Blog App
+# 📗 Table of Contents
 
-> The Blog app is Roby on rails website that will show the list of posts and empower readers to interact with them by adding comments and liking posts.
-> In this project for the blog app i had to change the validation for the differentmodels as well as writeunit tests for them.
+- [📖 About the Project](#about-project)
+  - [🗝️ Key Features](#key-features)
+  - [🛠️ Built With](#built-with)
+- [💻 Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Setup](#setup)
+  - [Usage](#usage)
+- [👥 Authors](#authors)
+- [🔭 Future Features](#future-features)
+- [🤝 Contributing](#contributing)
+- [⭐️ Show your support](#support)
+- [🙏 Acknowledgements](#acknowledgements)
+- [📝 License](#license)
 
+# 📖 Rails Blog <a name="about-project"></a>
 
-## Built With
-- Languages: Ruby
-- Models/Frameworks: Ruby on Rails
+**Rails Blog** a classic example of a blog website that shows the list of posts and empower readers to interact with them by adding comments and liking posts.
 
-## Getting started
-To get a local copy of this exercice, Please follow these simple example steps.
+## 🗝️ Key Features <a name="key-features"></a>
 
-#### 1. Clone this repository or download the Zip folder:"
+- Allows users to register an account
+- Requires users to log in
+- Shows a list of active users
+- Allows users to post blogs
+- Shows a list of posts by user
+- Allows users to comment on posts
+- Shows a list of comments per post
+- Allows users to like posts
+- Shows the count of likes in a post
 
-```bash command
-$ git clone https://github.com/chimwemwe007/blog-app.git
+## 🛠️ Built With <a name="built-with"></a>
+
+<details>
+  <summary>Server</summary>
+  <ul>
+    <li><a href="https://rubyonrails.org">Ruby on Rails</a></li>
+  </ul>
+</details>
+
+<details>
+<summary>Database</summary>
+  <ul>
+    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+  </ul>
+</details>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 💻 Getting Started <a name="getting-started"></a>
+
+To get a local copy up and running, follow these steps.
+
+### Prerequisites
+
+In order to run this project you need:
+
+- [Install Ruby](https://www.ruby-lang.org/en/documentation/installation/)
+- Install the [rails gem](https://rubygems.org/gems/rails)
+
+### Setup
+
+Clone this repository to your desired folder:
+
+```sh
+  cd my-folder
+  git clone https://github.com/chimwemwe007/Blog-App.git
 ```
-#### 2. Navigate to the location of the folder in your machine:
-```bash command
-you@your-Pc-name:~$ cd <folder>
+
+### Usage
+
+To run the project, execute the following commands:
+
+```sh
+  rails server
 ```
-#### 3. Press Enter to navigate to your local clone.
 
-#### 4. Go to your terminal and run the app with the following command:
-```bash command
-rails server
-```
-- Navigate to http://localhost:3000/
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Author
+## 👥 Authors <a name="authors"></a>
 
-👤 **Chimwemwe Mkandawire**
+👤 **Chimwemwe MKandawire**
 
 - GitHub: [@chimwemwe007](https://github.com/chimwemwe007)
-- LinkedIn: [chimweme-mkandawire](https://www.linkedin.com/in/chimwemwe-mkandawire)
+- Twitter: [@chmxz](https://twitter.com/chxmz)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/chimwemwe-mkandawire/)
+
+👤 **Chimemwe**
+
+- LinkedIn: [Chimemwe Mkandawire] (https://www.linkedin.com/in/chimwemwe-mkandawire/)
+- Github; [Chimemwe] (https://github.com/chimwemwe007)
+- Twitter: [Chimemwe] (https://twitter.com/CHxMZ)
 
 
-## 🤝 Contributing
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🔭 Future Features <a name="future-features"></a>
+
+- [x] Creating a data model
+- [ ] Processing data in models
+- [ ] Validations and Model specs
+- [ ] Setup and controllers
+- [ ] Controllers specs
+- [ ] Views
+- [ ] Forms
+- [ ] Integration specs for Views and fixing n+1 problems
+- [ ] Add Devise
+- [ ] Add authorization rules
+- [ ] Add API endpoints
+- [ ] API documentation
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🤝 Contributing <a name="contributing"></a>
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/chimwemwe-mkandawire/Blog-App/issues).
 
-## Show your support
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## ⭐️ Show your support <a name="support"></a>
 
 Give a ⭐️ if you like this project!
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
+A huge thanks to [Microverse](https://www.microverse.org) for their constant support.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 📝 License <a name="license"></a>
+
+This project is [MIT](https://github.com/chimwemwe-mkandawire/Blog-App/blob/dev/LICENSE) licensed.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
