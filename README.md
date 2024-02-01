@@ -82,17 +82,20 @@ To run the project, execute the following commands:
 
 ## 👥 Authors <a name="authors"></a>
 
+
+
 👤 **Chimwemwe MKandawire**
 
 - GitHub: [@chimwemwe007](https://github.com/chimwemwe007)
 - Twitter: [@chmxz](https://twitter.com/chxmz)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/chimwemwe-mkandawire/)
 
-👤 **Chimemwe**
 
-- LinkedIn: [Chimemwe Mkandawire] (https://www.linkedin.com/in/chimwemwe-mkandawire/)
-- Github; [Chimemwe] (https://github.com/chimwemwe007)
-- Twitter: [Chimemwe] (https://twitter.com/CHxMZ)
+👤 **Faisal Mumtaz**
+
+- GitHub: [@faisalakb](https://github.com/faisalakb)
+- Twitter: [@faisalakb786](https://twitter.com/Faisalakb786)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/faisal-mumtaz-514a221a6/)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
